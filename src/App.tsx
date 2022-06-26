@@ -16,6 +16,7 @@ import { ReactComponent as ClockIcon } from "./lib/icons/clock.svg";
 import { ReactComponent as SearchIcon } from "./lib/icons/search.svg";
 import { ReactComponent as NotificationIcon } from "./lib/icons/notification.svg";
 import { ReactComponent as ChartIcon } from "./lib/icons/chart.svg";
+import { ReactComponent as MenuIcon } from "./lib/icons/bars-solid.svg";
 import worm from "./lib/images/worm.png";
 import ufo from "./lib/images/ufo.png";
 import avatar from "./lib/images/avatar.png";
@@ -43,7 +44,7 @@ function App() {
       <nav
         id="sidebar"
         role="navigation"
-        className="sticky top-0 left-0 h-screen w-60 bg-primary overflow-hidden"
+        className="hidden md:inline-block sticky top-0 left-0 h-screen w-60 bg-primary overflow-hidden"
       >
         <div className="px-6 py-9">
           <h1 className="text-white text-2xl">Amar Vasha</h1>
@@ -66,11 +67,11 @@ function App() {
         </div>
       </nav>
 
-      <main className="px-10 flex-1">
-        <header className="bg-white h-14 rounded-b-lg shadow-lg shadow-black/5 flex items-center gap-8 p-8">
+      <main className="w-full px-10 flex-1">
+        <header className="md:flex bg-white h-14 rounded-b-lg shadow-lg shadow-black/5 flex items-center gap-8 p-8">
           <h3 className="text-primary my-0 font-bold">Welcome to Amar Vasha</h3>
           <div className="flex-1" />
-          <div className="flex items-center gap-4 border border-text-gray rounded-md px-4 py-1 w-80 text-sm text-text-gray">
+          <div className="flex hidden md:inline-flex items-center gap-4 border border-text-gray rounded-md px-4 py-1 w-80 text-sm text-text-gray">
             <SearchIcon />
             <input
               type="search"
@@ -80,13 +81,14 @@ function App() {
               className="flex-1 focus:outline-none"
             />
           </div>
-          <NotificationIcon />
-          <img src={avatar} alt="Avatar" />
+          <NotificationIcon className="hidden md:inline-flex" />
+          <MenuIcon className="w-5 md:hidden"/>
+          <img src={avatar} alt="Avatar" className="hidden md:inline-flex" />
         </header>
 
         <section className="mt-5">
           <div className="flex flex-wrap justify-between">
-            <Card border className="flex flex-wrap gap-4 items-center">
+            <Card border className="w-full my-2 md:w-auto flex flex-wrap gap-4 items-center">
               <RadialChart
                 getAngle={(d) => d.angle}
                 data={[
@@ -136,7 +138,7 @@ function App() {
                 </div>
               </div>
             </Card>
-            <Card border className="flex flex-wrap gap-4 items-center">
+            <Card border className="w-full my-2 md:w-auto flex flex-wrap gap-4 items-center">
               <RadialChart
                 getAngle={(d) => d.angle}
                 data={[
@@ -186,7 +188,7 @@ function App() {
                 </div>
               </div>
             </Card>
-            <Card border className="flex flex-wrap gap-4 items-center">
+            <Card border className="w-full my-2 md:w-auto flex flex-wrap gap-4 items-center">
               <ClockIcon />
               <div className="divide-y prose-h3:my-0 prose-h3:text-base flex flex-col gap-3">
                 <div>
@@ -206,9 +208,9 @@ function App() {
           </div>
         </section>
 
-        <section className="mt-5 grid grid-cols-2 gap-8">
-          <Card shadow="lg" className="flex flex-col items-stretch gap-6">
-            <div className="flex items-center justify-between prose-h4:my-0">
+        <section className="mt-5 md:flex md:justify-between"> {/*grid grid-cols-2 gap-8*/}
+          <Card shadow="lg" className="flex flex-col my-3 items-stretch gap-6 md:w-1/2 md:mr-5">
+            <div className="w-full flex items-center justify-between prose-h4:my-0">
               <h4>Last Class Status</h4>
               <h4 className="text-secondary">21 July 2021</h4>
             </div>
@@ -232,14 +234,14 @@ function App() {
               <span className="absolute top-0 left-0 h-full w-6 bg-secondary" />
             </div>
           </Card>
-          <Card shadow="lg" className="flex flex-col items-stretch gap-2">
+          <Card shadow="lg" className="flex my-3 flex-col items-stretch gap-2 md:w-1/2 md:ml-5">
             <div className="flex items-center justify-between prose-h4:my-2">
               <h4>Competency Progress</h4>
               <h4 className="text-text-gray text-sm">
                 All information in percentage(%)
               </h4>
             </div>
-            <div className="flex items-stretch gap-4">
+            <div className="md:flex md:items-stretch md:justify-between md:gap-4">
               <div className="flex flex-col gap-2">
                 <div className="flex items-start gap-2">
                   <div className="h-6 w-6 rounded bg-[#F1554C]" />
@@ -271,7 +273,7 @@ function App() {
                 </div>
               </div>
 
-              <XYPlot width={300} height={200} stackBy="y">
+              <XYPlot width={250} height={200} stackBy="y" className="mt-3">
                 <HorizontalGridLines
                   tickTotal={4}
                   tickValues={[35, 55, 75, 100]}
@@ -295,24 +297,24 @@ function App() {
           </Card>
         </section>
 
-        <section className="mt-5 grid grid-cols-2 gap-8 mb-5">
+        <section className="mt-5 md:grid grid-cols-2 gap-8 mb-5">
           <Card
             shadow="lg"
-            className="bg-[#FFEBF9] flex items-stretch relative"
+            className="bg-[#FFEBF9] md:flex items-stretch relative mb-5"
           >
-            <div className="flex-3 flex flex-col items-center gap-6 relative">
+            <div className="flex flex-3 flex-col items-center gap-6 relative w-3/5">
               <h2 className="my-0 text-primary mb-3">Next Class</h2>
               <h3 className="my-0 text-custom-purple-dark">Learning Outcome</h3>
               <h4 className="my-0">Writing Rivers Name</h4>
             </div>
-            <div className="bg-white flex-2 flex flex-col items-center gap-16 absolute top-0 right-0 h-full p-6">
+            <div className="bg-white flex-1 flex-col items-center gap-16 absolute top-0 right-0 h-full p-6 w-1/3">
               <h2 className="my-0 text-custom-purple font-semibold">
                 21 July 2021
               </h2>
               <img src={worm} alt="Worm" />
             </div>
           </Card>
-          <Card shadow="lg" className="flex items-stretch justify-between">
+          <Card shadow="lg" className="flex items-stretch justify-between mb-5">
             <div className="grid place-items-center">
               <img src={ufo} alt="Worm" className="h-3/4 w-auto my-0" />
             </div>
