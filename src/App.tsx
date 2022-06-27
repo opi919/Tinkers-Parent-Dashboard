@@ -208,8 +208,8 @@ function App() {
           </div>
         </section>
 
-        <section className="mt-5 lg:flex lg:justify-between"> {/*grid grid-cols-2 gap-8*/}
-          <Card shadow="lg" className="flex flex-col my-3 items-stretch gap-6 lg:w-1/2 lg:mr-5">
+        <section className="mt-5 xl:flex xl:justify-between"> {/*grid grid-cols-2 gap-8*/}
+          <Card shadow="xl" className="flex flex-col my-3 items-stretch gap-6 xl:w-1/2 xl:mr-5">
             <div className="w-full flex items-center justify-between prose-h4:my-0">
               <h4>Last Class Status</h4>
               <h4 className="text-secondary">21 July 2021</h4>
@@ -234,7 +234,7 @@ function App() {
               <span className="absolute top-0 left-0 h-full w-6 bg-secondary" />
             </div>
           </Card>
-          <Card shadow="lg" className="flex my-3 flex-col items-stretch gap-2 lg:w-1/2 lg:ml-5">
+          <Card shadow="lg" className="flex my-3 flex-col items-stretch gap-2 xl:w-1/2 xl:ml-5">
             <div className="flex items-center justify-between prose-h4:my-2">
               <h4>Competency Progress</h4>
               <h4 className="text-text-gray text-sm">
