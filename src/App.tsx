@@ -87,8 +87,8 @@ function App() {
         </header>
 
         <section className="mt-5">
-          <div className="flex flex-wrap justify-between">
-            <Card border className="w-full my-2 md:w-auto flex flex-wrap gap-4 items-center">
+          <div className="flex flex-wrap lg:flex-nowrap justify-between">
+            <Card border className="w-full my-2 lg:w-auto flex flex-wrap gap-4 items-center">
               <RadialChart
                 getAngle={(d) => d.angle}
                 data={[
@@ -138,7 +138,7 @@ function App() {
                 </div>
               </div>
             </Card>
-            <Card border className="w-full my-2 md:w-auto flex flex-wrap gap-4 items-center">
+            <Card border className="w-full my-2 lg:w-auto flex flex-wrap gap-4 items-center lg:mx-6">
               <RadialChart
                 getAngle={(d) => d.angle}
                 data={[
@@ -188,7 +188,7 @@ function App() {
                 </div>
               </div>
             </Card>
-            <Card border className="w-full my-2 md:w-auto flex flex-wrap gap-4 items-center">
+            <Card border className="w-full my-2 lg:w-auto flex flex-wrap gap-4 items-center">
               <ClockIcon />
               <div className="divide-y prose-h3:my-0 prose-h3:text-base flex flex-col gap-3">
                 <div>
@@ -208,8 +208,8 @@ function App() {
           </div>
         </section>
 
-        <section className="mt-5 md:flex md:justify-between"> {/*grid grid-cols-2 gap-8*/}
-          <Card shadow="lg" className="flex flex-col my-3 items-stretch gap-6 md:w-1/2 md:mr-5">
+        <section className="mt-5 lg:flex lg:justify-between"> {/*grid grid-cols-2 gap-8*/}
+          <Card shadow="lg" className="flex flex-col my-3 items-stretch gap-6 lg:w-1/2 lg:mr-5">
             <div className="w-full flex items-center justify-between prose-h4:my-0">
               <h4>Last Class Status</h4>
               <h4 className="text-secondary">21 July 2021</h4>
@@ -234,7 +234,7 @@ function App() {
               <span className="absolute top-0 left-0 h-full w-6 bg-secondary" />
             </div>
           </Card>
-          <Card shadow="lg" className="flex my-3 flex-col items-stretch gap-2 md:w-1/2 md:ml-5">
+          <Card shadow="lg" className="flex my-3 flex-col items-stretch gap-2 lg:w-1/2 lg:ml-5">
             <div className="flex items-center justify-between prose-h4:my-2">
               <h4>Competency Progress</h4>
               <h4 className="text-text-gray text-sm">
@@ -297,10 +297,10 @@ function App() {
           </Card>
         </section>
 
-        <section className="mt-5 md:grid grid-cols-2 gap-8 mb-5">
+        <section className="mt-5 lg:grid grid-cols-2 gap-8 mb-5">
           <Card
             shadow="lg"
-            className="bg-[#FFEBF9] md:flex items-stretch relative mb-5"
+            className="bg-[#FFEBF9] lg:flex items-stretch relative mb-5"
           >
             <div className="flex flex-3 flex-col items-center gap-6 relative w-3/5">
               <h2 className="my-0 text-primary mb-3">Next Class</h2>
