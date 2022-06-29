@@ -52,15 +52,15 @@ function App() {
           <div className="flex flex-col items-stretch gap-4">
             {navItems.map((item) => {
               const clz = clsx(
-                "text-white p-4 flex gap-2 items-center",
+                "text-white p-4 flex gap-2 items-center no-underline cursor-pointer",
                 item.label === "Dashboard" &&
-                  "bg-white -mr-8 rounded-l-full text-primary"
+                "bg-[#f3f5fb] -mr-8 rounded-l-full text-primary"
               );
               return (
-                <button key={item.label} className={clz}>
+                <a href="" key={item.label} className={clz}>
                   <item.icon />
                   {item.label}
-                </button>
+                </a>
               );
             })}
           </div>
@@ -68,10 +68,9 @@ function App() {
       </nav>
 
       <main className="w-full px-10 flex-1">
-        <header className="md:flex bg-white h-14 rounded-b-lg shadow-lg shadow-black/5 flex items-center gap-8 p-8">
+        <header className="flex justify-between bg-white h-14 rounded-b-lg shadow-lg shadow-black/5 items-center gap-8 p-8">
           <h3 className="text-primary my-0 font-bold">Welcome to Amar Vasha</h3>
-          <div className="flex-1" />
-          <div className="flex hidden md:inline-flex items-center gap-4 border border-text-gray rounded-md px-4 py-1 w-80 text-sm text-text-gray">
+          {/* <div className="flex hidden md:inline-flex items-center gap-4 border border-text-gray rounded-md px-4 py-1 w-80 text-sm text-text-gray">
             <SearchIcon />
             <input
               type="search"
@@ -80,10 +79,39 @@ function App() {
               placeholder="Search"
               className="flex-1 focus:outline-none"
             />
+          </div> */}
+          {/* <NotificationIcon className="hidden md:inline-flex" /> */}
+          {/* <img src={avatar} alt="Avatar" className="hidden md:inline-flex" /> */}
+
+          <div className="relative text-left md:inline-block">
+            <MenuIcon className="w-5 md:hidden cursor-pointer relative" onClick={
+              () => {
+                const sidebar = document.getElementById("dropdownmenu");
+                sidebar?.classList.toggle("hidden");
+              }
+            } />
+            <div>
+              <button type="button" className="hidden justify-center w-full rounded-md px-4 py-2 text-sm font-bold text-gray-900 md:inline-flex" id="menu-button" aria-expanded="true" aria-haspopup="true" onClick={
+                () => {
+                  const sidebar = document.getElementById("dropdownmenu");
+                  sidebar?.classList.toggle("hidden");
+                }
+              }>
+                Sofia
+                <svg className="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </button>
+            </div>
+            <div className="origin-top-right hidden absolute right-0 mt-5 md:mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" id="dropdownmenu">
+              <div className="py-1" role="none">
+                {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
+                <a href="#" className="text-gray-700 block px-4 py-2 text-sm no-underline" role="menuitem" id="menu-item-0">Dashboard</a>
+                <a href="#" className="text-gray-700 block px-4 py-2 text-sm no-underline" role="menuitem" id="menu-item-1">Payments</a>
+                <a href="#" className="text-gray-700 block px-4 py-2 text-sm no-underline" role="menuitem" id="menu-item-2">Classes</a>
+              </div>
+            </div>
           </div>
-          <NotificationIcon className="hidden md:inline-flex" />
-          <MenuIcon className="w-5 md:hidden"/>
-          <img src={avatar} alt="Avatar" className="hidden md:inline-flex" />
         </header>
 
         <section className="mt-5">
@@ -199,7 +227,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-bold text-text-gray">
-                    Current Learning Outcome
+                    Current Home Work
                   </h3>
                   <h3>Writing flower names</h3>
                 </div>
@@ -214,18 +242,18 @@ function App() {
               <h4>Last Class Status</h4>
               <h4 className="text-secondary">21 July 2021</h4>
             </div>
-            <div className="grid grid-cols-3 gap-8">
+            <div className="sm:grid grid-cols-3 gap-8">
               <div className="bg-gray-100 rounded-md p-4 text-center prose-h3:font-extrabold">
-                <h3 className="my-0 text-primary">80%</h3>
+                <h3 className="my-0 text-primary">0.00%</h3>
                 <h4 className="my-0">Effort</h4>
+              </div>
+              <div className="bg-gray-100 rounded-md p-4 text-center prose-h3:font-extrabold my-5 sm:my-0">
+                <h3 className="my-0 text-primary">80%</h3>
+                <h4 className="my-0">Understanding</h4>
               </div>
               <div className="bg-gray-100 rounded-md p-4 text-center prose-h3:font-extrabold">
                 <h3 className="my-0 text-primary">80%</h3>
-                <h4 className="my-0">Effort</h4>
-              </div>
-              <div className="bg-gray-100 rounded-md p-4 text-center prose-h3:font-extrabold">
-                <h3 className="my-0 text-primary">80%</h3>
-                <h4 className="my-0">Effort</h4>
+                <h4 className="my-0">Progress</h4>
               </div>
             </div>
             <div className="bg-gray-100 rounded-md py-6 px-10 text-center prose-h3:font-extrabold flex items-center justify-between gap-12 relative overflow-hidden">
