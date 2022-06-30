@@ -103,7 +103,7 @@ function App() {
                 </svg>
               </button>
             </div>
-            <div className="origin-top-right hidden absolute right-0 mt-5 md:mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" id="dropdownmenu">
+            <div className="origin-top-right z-50 hidden absolute right-0 mt-5 md:mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" id="dropdownmenu">
               <div className="py-1" role="none">
                 {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
                 <a href="#" className="text-gray-700 block px-4 py-2 text-sm no-underline" role="menuitem" id="menu-item-0">Dashboard</a>
@@ -242,12 +242,12 @@ function App() {
               <h4>Last Class Status</h4>
               <h4 className="text-secondary">21 July 2021</h4>
             </div>
-            <div className="sm:grid grid-cols-3 gap-8">
+            <div className="lg:grid grid-cols-3 gap-8">
               <div className="bg-gray-100 rounded-md p-4 text-center prose-h3:font-extrabold">
                 <h3 className="my-0 text-primary">0.00%</h3>
                 <h4 className="my-0">Effort</h4>
               </div>
-              <div className="bg-gray-100 rounded-md p-4 text-center prose-h3:font-extrabold my-5 sm:my-0">
+              <div className="bg-gray-100 rounded-md p-4 text-center prose-h3:font-extrabold my-5 lg:my-0">
                 <h3 className="my-0 text-primary">80%</h3>
                 <h4 className="my-0">Understanding</h4>
               </div>
